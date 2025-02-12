@@ -23,7 +23,6 @@
     <jdk.path>${env.JAVA_HOME}</jdk.path>
     <maven.compiler.source>15</maven.compiler.source>
     <maven.compiler.target>15</maven.compiler.target>
-    <jacoco.version>0.8.6</jacoco.version>
   </properties>
 
   <licenses>
@@ -53,11 +52,6 @@
   </distributionManagement>
 
   <dependencies>
-    <dependency>
-      <groupId>org.openclover</groupId>
-      <artifactId>clover-maven-plugin</artifactId>
-      <version>4.5.2</version>
-    </dependency>
     <dependency>
       <groupId>commons-io</groupId>
       <artifactId>commons-io</artifactId>
@@ -113,6 +107,11 @@
     </pluginManagement>
     <plugins>
       <plugin>
+        <groupId>org.openclover</groupId>
+        <artifactId>clover-maven-plugin</artifactId>
+        <version>4.5.2</version>
+      </plugin>
+      <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-checkstyle-plugin</artifactId>
         <version>${checkstyle.version}</version>
@@ -147,34 +146,6 @@
           </includes>
           <redirectTestOutputToFile>true</redirectTestOutputToFile>
         </configuration>
-      </plugin>
-      <plugin>
-        <groupId>org.jacoco</groupId>
-        <artifactId>jacoco-maven-plugin</artifactId>
-        <version>${jacoco.version}</version>
-        <executions>
-          <execution>
-            <id>prepare-agent</id>
-            <goals>
-              <goal>prepare-agent</goal>
-            </goals>
-          </execution>
-          <execution>
-            <id>post-unit-test</id>
-            <phase>test</phase>
-            <goals>
-              <goal>report</goal>
-            </goals>
-            <configuration>
-              <!--Sets
-              the path to the file which contains the execution data.-->
-              <dataFile>target/jacoco.exec</dataFile>
-              <!--Sets
-              the output directory for the code coverage report.-->
-              <outputDirectory>target/jacoco-ut</outputDirectory>
-            </configuration>
-          </execution>
-        </executions>
       </plugin>
     </plugins>
     <resources>
