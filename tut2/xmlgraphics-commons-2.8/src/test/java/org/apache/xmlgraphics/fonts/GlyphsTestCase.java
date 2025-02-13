@@ -79,6 +79,14 @@ public class GlyphsTestCase {
         glyph = "blah";
         unicodes = Glyphs.getUnicodeSequenceForGlyphName(glyph);
         assertNull(unicodes);
+        
+        glyph = "u12312312312";
+        unicodes = Glyphs.getUnicodeSequenceForGlyphName(glyph);
+        assertNull(unicodes);
+        
+        glyph = "u1";
+        unicodes = Glyphs.getUnicodeSequenceForGlyphName(glyph);
+        assertNull(unicodes);
     }
 
     @Test

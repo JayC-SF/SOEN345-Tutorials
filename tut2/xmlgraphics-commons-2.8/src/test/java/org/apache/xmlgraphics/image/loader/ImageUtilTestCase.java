@@ -79,6 +79,14 @@ public class ImageUtilTestCase {
         assertNull(pageIndex);
         pageIndex = ImageUtil.getPageIndexFromURI("http://localhost/images/scan1.tif#page=3");
         assertEquals(2, pageIndex.intValue());
+       
+        pageIndex = ImageUtil.getPageIndexFromURI("http://localhost/images/scan1.tif#page=0");
+        assertEquals(0, pageIndex.intValue());
+        pageIndex = ImageUtil.getPageIndexFromURI("http://localhost/images/scan1.tif#page=9");
+        assertEquals(8, pageIndex.intValue());
+        pageIndex = ImageUtil.getPageIndexFromURI("http://localhost/images/scan1.tif#");
+        assertNull(pageIndex);
+        
         //Note: no detailed test anymore as this is tested through needPageIndexFromURI().
 
         //getPageIndexFromURI only works on URIs, so ignore anything that doesn't have a '#'

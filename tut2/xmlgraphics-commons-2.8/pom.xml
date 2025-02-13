@@ -20,7 +20,7 @@
     <release.version>2.5.2</release.version>
     <surefire.version>2.18.1</surefire.version>
     <jdk.path>${env.JAVA_HOME}</jdk.path>
-    <pitest.version>1.7.3</pitest.version>
+    <pitest.version>1.18.1</pitest.version>
   </properties>
 
   <licenses>
@@ -108,15 +108,25 @@
         <groupId>org.pitest</groupId>
         <artifactId>pitest-maven</artifactId>
         <version>${pitest.version}</version>
-        <executions>
-          <execution>
-            <id>pit-report</id>
-            <phase>test</phase>
-            <goals>
-              <goal>mutationCoverage</goal>
-            </goals>
-          </execution>
-        </executions>
+        <configuration>
+          <mutators>
+            <mutator>NEGATE_CONDITIONALS</mutator>
+            <mutator>CONDITIONALS_BOUNDARY</mutator>
+            <!-- RETURN_VALS Mutator set was superseded by the following set as per the documentation: https://pitest.org/quickstart/mutators/#RETURN_VALS -->
+            <mutator>EMPTY_RETURNS</mutator>
+            <mutator>FALSE_RETURNS</mutator>
+            <mutator>TRUE_RETURNS</mutator>
+            <mutator>NULL_RETURNS</mutator>
+            <mutator>PRIMITIVE_RETURNS</mutator>
+          </mutators>
+          <targetClasses>
+            <param>org.apache.xmlgraphics.image.loader.util.ImageUtil</param>
+            <param>org.apache.xmlgraphics.fonts.Glyphs</param>
+            <!-- commented out for faster testing purposes -->
+            <!-- <param>org.apache.xmlgraphics.util.QName</param> -->
+            <!-- <param>org.apache.xmlgraphics.image.loader.impl*</param> -->
+          </targetClasses>
+        </configuration>
       </plugin>
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
