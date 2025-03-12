@@ -10,6 +10,10 @@ import static org.mockito.Mockito.when;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNull;
 
+/**
+ * @author Juan-Carlos Sreng-Flores
+ * @ID 40101813
+ */
 public class RemoteDBTest {
     private Iterator<String> iteratorMock;
 
