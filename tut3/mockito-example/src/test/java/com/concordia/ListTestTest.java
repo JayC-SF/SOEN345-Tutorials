@@ -26,6 +26,7 @@ public class ListTestTest {
 		List list = mock(List.class);
 		// TODO: Make this test pass using one line of code. Hint: look at the Mockito documentation
 		// for "thenReturn"
+		when(list.size()).thenReturn(10, 20);
 		assertEquals(10, list.size()); // First Call
 		assertEquals(20, list.size()); // Second Call
 	}
@@ -36,7 +37,8 @@ public class ListTestTest {
 		when(list.get(0)).thenReturn("0th element");
 		assertEquals("0th element", list.get(0));
 		// Does the next line pass or fail? Why? If it fails, how do we make it pass? What is the value of list.get(1)?
-		//assertNull(list.get(1));
+		// still works. defaults to default type for non configured inputs.
+		assertNull(list.get(1));
 	}
 
 	@Test

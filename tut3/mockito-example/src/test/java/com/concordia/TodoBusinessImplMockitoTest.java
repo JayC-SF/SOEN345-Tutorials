@@ -26,5 +26,4 @@ public class TodoBusinessImplMockitoTest {
 				.retrieveTodosRelatedToSpring("Ranga");
 		assertEquals(2, todos.size());
 	}
-
 }

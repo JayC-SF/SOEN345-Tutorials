@@ -44,6 +44,4 @@ public class RemoteDB {
 
         return null;
     }
-    
-
 }
