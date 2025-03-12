@@ -17,6 +17,7 @@ import static org.junit.Assert.assertNull;
 public class RemoteDBTest {
     private Iterator<String> iteratorMock;
 
+    // remove warning from generics of iterator class
     @SuppressWarnings("unchecked")
     @BeforeEach
     public void setupMocks() {
