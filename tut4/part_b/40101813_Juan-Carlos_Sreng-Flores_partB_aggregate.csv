@@ -1,0 +1,8 @@
+Label,# Samples,Average,Median,90% Line,95% Line,99% Line,Min,Max,Error %,Throughput,Received KB/sec,Sent KB/sec
+https://blazedemo.com/reserve.php,100,399,373,498,527,691,295,838,0.000%,9.60154,2725.66,47.25
+Find flights,100,399,373,498,527,691,295,838,0.000%,9.56297,2714.71,47.06
+https://blazedemo.com/purchase.php,100,279,277,363,372,394,192,453,0.000%,6.07903,45.60,32.57
+select a flight,100,279,277,363,372,394,192,453,0.000%,4.74563,35.60,25.42
+https://blazedemo.com/confirmation.php,100,265,257,321,335,365,190,472,0.000%,2.23130,14.70,12.22
+pay the flight,100,265,257,321,335,365,190,472,0.000%,1.94951,12.84,10.67
+TOTAL,600,314,302,441,473,558,190,838,0.000%,10.51893,1044.76,55.24
